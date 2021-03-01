@@ -10,8 +10,8 @@ class App extends Component {
     const UserProfileView = () => <UserProfile />;
     return (
       <div className="App">
-        <Router>
-          <Navbar />
+        <Router>          
+        <Navbar />
           <Switch>
             <Route exact path="/">
               <h1>Inicio</h1>
@@ -30,6 +30,7 @@ class App extends Component {
               <h1>Contacta con nosotros</h1>
             </Route>
           </Switch>
+          
         </Router>
       </div>
     );

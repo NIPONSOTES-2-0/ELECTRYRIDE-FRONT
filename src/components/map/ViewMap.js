@@ -1,22 +1,23 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Component } from 'react';
 import ReactMapGL from 'react-map-gl';
 import Geocoder from 'react-mapbox-gl-geocoder';
 import { Container, Col, Row } from 'reactstrap';
 
 const mapStyle = {
     width: '100%',
-    height: 600
+    height: 600,
+    zIndex: 1
 }
 
 const mapboxApiKey = 'pk.eyJ1IjoiZWRraWxsYWgiLCJhIjoiY2tsM3k0ZzBnMGF3MjJvanUyYjRmdDQzZSJ9.4UIPAYjND8HNAZEsCa8e4A'
 
 const params = {
-    country: "ca"
+    country: "co"
 }
 
-class MapView extends PureComponent {
+class MapView extends Component {
 
-  constructor(props) {
+  constructor(props) {    
     super(props);
     this.state = {
       viewport: {
@@ -28,22 +29,22 @@ class MapView extends PureComponent {
 
   }
 
-  onSelected = (viewport, item) => {
+  onSelected = (viewport, item) => {      
       this.setState({
         viewport
       })
   }
 
   render() {
-    const view = this.state.viewport;    
+    const view = this.state.viewport;     
     return(
-      <Container fluid={true}>
+      <Container fluid={true}> 
         <Row>
           <Col><h2>Mapa</h2></Col>
         </Row>
         <Row className="py-4">
           <Col xs={2}>
-            <Geocoder
+            <Geocoder 
                 mapboxApiAccessToken={mapboxApiKey}
                 onSelected={this.onSelected}
                 viewport={view}
