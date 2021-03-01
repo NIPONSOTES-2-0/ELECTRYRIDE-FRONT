@@ -21,12 +21,12 @@ export default class Login extends React.Component {
 
   handlePassword(e) {
     this.setState({
-      password: e.target.value
+      password: e.target.value,
     });
   }
   handleEmail(e) {
     this.setState({
-      email: e.target.value
+      email: e.target.value,
     });
   }
   handleSubmit(e) {
@@ -89,7 +89,7 @@ export default class Login extends React.Component {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color= "primary"
+                color="primary"
                 className="submit"
               >
                 Sign in
