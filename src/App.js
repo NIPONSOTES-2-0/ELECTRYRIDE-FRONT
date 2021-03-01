@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
 import MapView from "./components/map/ViewMap";
-import Login from "./components/login/Login";
+import {Login} from "./components/login/Login";
 //hola
 class App extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends Component {
     };
     this.handleIsLoggedIn = this.handleIsLoggedIn.bind(this);
   }
-  handleIsLoggedIn() {
+  handleIsLoggedIn = () =>  {
     this.setState({
       isLoggedIn: true
     });

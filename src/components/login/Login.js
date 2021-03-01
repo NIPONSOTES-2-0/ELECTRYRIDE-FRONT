@@ -10,49 +10,31 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import "./styles/Login.css";
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { email: "", password: "" };
-    this.handleEmail = this.handleEmail.bind(this);
-    this.handlePassword = this.handlePassword.bind(this);
+    this.handlePassword = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { email: "", password: "" };
   }
-
-  handlePassword(e) {
+  handleChange = (e) =>  {
     this.setState({
-      password: e.target.value,
+        [e.target.name]: e.target.value
     });
   }
-  handleEmail(e) {
-    this.setState({
-      email: e.target.value,
-    });
-  }
-  handleSubmit(e) {
-    console.log(e.target.value);
-    const user = "prueba@gmail.com";
-    const pass = "hola123";
+  handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      localStorage.getItem("email") === null ||
-      localStorage.getItem("password") === null
-    ) {
-      if (this.state.email !== user || this.state.password !== pass) {
-        alert("Correo o password incorrecto");
-        return;
-      }
-    } else if (
-      localStorage.getItem("email") !== this.state.email ||
-      localStorage.getItem("password") !== this.state.password
-    ) {
-      alert("Correo o password incorrecto");
-      return;
+    const email = "prueba@gmail.com";
+    const password = "hola123";
+    if (this.state.email === email && this.state.password === password) {
+      localStorage.setItem("email", this.state.email);
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("password", this.state.password);
+      alert("Prototipo logueo correcto");
+      document.location.href = "/perfil";
+    } else {
+        alert("Usuario o Contraseña incorrecta");
     }
-    localStorage.setItem("email", this.state.email);
-    localStorage.setItem("password", this.state.password);
-    alert("Prototipo logueo correcto");
-    document.location.href = "/perfil";
   }
   render() {
     return (
@@ -71,7 +53,7 @@ export default class Login extends React.Component {
                   id="email"
                   name="email"
                   autoComplete="email"
-                  onChange={this.handleEmail}
+                  onChange={this.handleChange}
                   autoFocus
                 />
               </FormControl>
@@ -82,7 +64,7 @@ export default class Login extends React.Component {
                   type="password"
                   id="password"
                   autoComplete="current-password"
-                  onChange={this.handlePassword}
+                  onChange={this.handleChange}
                 />
               </FormControl>
               <Button
