@@ -51,7 +51,6 @@ export default class Login extends React.Component {
     }
     localStorage.setItem("email", this.state.email);
     localStorage.setItem("password", this.state.password);
-    //this.props.login();
     alert("Prototipo logueo correcto");
     document.location.href = "/perfil";
   }
