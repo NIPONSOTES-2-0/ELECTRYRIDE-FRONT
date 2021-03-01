@@ -1,0 +1,30 @@
+.layout {
+    width: 50%;
+    height: 50%;
+    display:grid;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .paper {
+    margin-top: 15%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  .avatar {
+    margin: 10px;
+    background-color:#060b26;
+  }
+  
+  .form {
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+  
+  .submit {
+    margintop: 20px;
+  }
