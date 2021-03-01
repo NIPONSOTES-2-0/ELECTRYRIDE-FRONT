@@ -35,7 +35,7 @@ class MapView extends PureComponent {
   }
 
   render() {
-    const { viewport } = this.state;
+    const view = this.state.viewport;    
     return(
       <Container fluid={true}>
         <Row>
@@ -46,7 +46,7 @@ class MapView extends PureComponent {
             <Geocoder
                 mapboxApiAccessToken={mapboxApiKey}
                 onSelected={this.onSelected}
-                viewport={viewport}
+                viewport={view}
                 hideOnSelect={true}
                 value=""
                 queryParams={params}
@@ -58,7 +58,7 @@ class MapView extends PureComponent {
             <ReactMapGL
               mapboxApiAccessToken={mapboxApiKey}
               mapStyle="mapbox://styles/mapbox/streets-v11"
-              {...viewport}
+              {...view}
               {...mapStyle}
               onViewportChange={(viewport) => this.setState({viewport})}
             >
