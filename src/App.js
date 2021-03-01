@@ -3,7 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
-
+import MapView from "./components/map/ViewMap";
+//hola
 class App extends Component {
   render() {
     const UserProfileView = () => <UserProfile />;
@@ -17,7 +18,7 @@ class App extends Component {
             </Route>
             <Route path="/perfil" component={UserProfileView} />
             <Route exact path="/map">
-              <h1>Mapa</h1>
+              <MapView />
             </Route>
             <Route exact path="/viaje">
               <h1>Inicia tu viaje</h1>
