@@ -20,7 +20,7 @@ it("renders without crashing", () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-
+/*
 test("Should Put the Marks", () => {    
     const places = venues.venues;    
     render(<ViewMap />);
@@ -30,13 +30,13 @@ test("Should Put the Marks", () => {
     console.log("markerrs: ",markerrs);
   });
 
-  
+  */
 test("Should return map", () => {
   render(<ViewMap />);
 });
 
 //const buttons = screen.getAllByRole("button");
-
+/*
 it("Should Have a Mark", () => {
   const  marker =  {
     description: 'Centro comercial Santa fe',
@@ -53,8 +53,8 @@ it("Should Have a Mark", () => {
   fireEvent.click(mark);
 
 });
-
-
+*/
+/*
 test('Should show a Popup', () => {
     const  marker =  {
         description: 'Centro comercial Santa fe',
@@ -65,7 +65,7 @@ test('Should show a Popup', () => {
       };
     render(<CustomPopup index={1} marker={marker} />);
 });
-
+*/
 /*
 const searchProccess = (searchValue) => {
     const buttons = screen.getAllByRole("button");
