@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
@@ -6,11 +7,13 @@ import CustomMarker from "./components/map/CustomMarker";
 import CustomPopup from "./components/map/CustomPopup";
 import venues from "./components/map/places.json";
 import Markers from "./components/map/Markers";
+import {Login} from './components/login/Login';
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { mount } from "enzyme";
 import { configure } from "enzyme";
 //import Adapter from "enzyme-adapter-react-16";
 //configure({ adapter: new Adapter() });
+
 
 
 
@@ -29,6 +32,7 @@ test("Should Put the Marks", () => {
     const markerrs = render(<Markers  places={places} openPopup={x}/>);             //places={places}
     console.log("markerrs: ",markerrs);
   });
+
 
   
 test("Should return map", () => {
@@ -84,4 +88,10 @@ test("Should Search A Place", () => {
   render(<ViewMap />);
   //searchProccess("Escuela Colombiana");
   //expect(screen.getByText(/Escuela Colombiana de Ingeniería Julio Garavito/i)).toBeInTheDocument();
+
+test('Sould return view login', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Login/>, div);
+    ReactDOM.unmountComponentAtNode(div);
+
 });
