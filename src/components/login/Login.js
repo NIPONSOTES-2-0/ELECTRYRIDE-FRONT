@@ -25,8 +25,8 @@ export class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const email = "prueba@gmail.com";
-    const password = "hola123";
-    if (this.state.email === email && this.state.password === password) {
+    const pass = "hola123";
+    if (this.state.email === email && this.state.password === pass) {
       localStorage.setItem("email", this.state.email);
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("password", this.state.password);
