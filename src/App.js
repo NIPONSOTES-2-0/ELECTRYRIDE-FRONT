@@ -5,6 +5,7 @@ import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
 import MapView from "./components/map/ViewMap";
 import {Login} from "./components/login/Login";
+import {Register} from "./components/login/Register";
 //hola
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,8 @@ class App extends Component {
   }
   render() {
     const UserProfileView = () => <UserProfile />;
-    const LoginView = () => <Login/>;
+    const LoginView = () => <Login />;
+    const RegisterView = () => <Register/>;
     return (
       <div className="App">
         <Router>          
@@ -30,6 +32,7 @@ class App extends Component {
             <Route exact path="/" component={LoginView}>
             </Route>
             <Route path="/perfil" component={UserProfileView} />
+            <Route path="/register" component={RegisterView} />
             <Route exact path="/map">
               <MapView />
             </Route>
