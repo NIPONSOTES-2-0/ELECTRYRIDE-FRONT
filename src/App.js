@@ -4,9 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
 import MapView from "./components/map/ViewMap";
+import AddCreditCard from './components/pagos/AddCreditCard';
 import {Login} from "./components/login/Login";
 import {Register} from "./components/login/Register";
-//hola
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,7 @@ class App extends Component {
               <h1>Inicia tu viaje</h1>
             </Route>
             <Route exact path="/pagos">
-              <h1>Escoge tu metodo de pago</h1>
+              <AddCreditCard />
             </Route>
             <Route exact path="/ayuda">
               <h1>Contacta con nosotros</h1>
