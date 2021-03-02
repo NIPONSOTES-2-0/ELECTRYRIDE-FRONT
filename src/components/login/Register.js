@@ -5,18 +5,16 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
-import LockIcon from "@material-ui/icons/LockOutlined";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import "./styles/Login.css";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-export class Login extends React.Component {
+export class Register extends React.Component {
   constructor(props) {
     super(props);
-    this.handlePassword = this.handleChange.bind(this);
+    this.state = { email: "", password: "", name: "", cpassword: "" };
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleRegister = this.handleRegister.bind(this);
-    this.state = { email: "", password: "" };
   }
   handleChange = (e) =>  {
     this.setState({
@@ -25,20 +23,23 @@ export class Login extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    const email = "prueba@gmail.com";
-    const pass = "hola123";
-    if (this.state.email === email && this.state.password === pass) {
-      localStorage.setItem("email", this.state.email);
-      localStorage.setItem("isLoggedIn", true);
-      localStorage.setItem("password", this.state.password);
-      alert("Prototipo logueo correcto");
-      document.location.href = "/perfil";
-    } else {
-        alert("Usuario o Contraseña incorrecta");
+    if (this.state.password !== this.state.cpassword) {
+      alert("Verifique la contraseña");
+      return;
     }
-  }
-  handleRegister = () => {
-    document.location.href = "/register"
+    if (
+      !this.state.email.length ||
+      !this.state.password.length ||
+      !this.state.name.length ||
+      !this.state.cpassword.length
+    ) {
+      alert("Llene todos los campos");
+      return;
+    }
+    localStorage.setItem("email", this.state.email);
+    localStorage.setItem("password", this.state.password);
+    localStorage.setItem("name", this.state.name);
+    document.location.href = "/perfil";
   }
   render() {
     return (
@@ -47,10 +48,20 @@ export class Login extends React.Component {
         <main className="layout">
           <Paper className="paper">
             <Avatar className="avatar">
-              <LockIcon />
+              <AccountCircleIcon />
             </Avatar>
-            <Typography variant="h2">Sign in</Typography>
+            <Typography variant="h2">Update</Typography>
             <form className="form" onSubmit={this.handleSubmit}>
+              <FormControl margin="normal" required fullWidth>
+                <InputLabel htmlFor="email">Nombre</InputLabel>
+                <Input
+                  id="nombre"
+                  name="nombre"
+                  autoComplete="nombre"
+                  onChange={this.handleChange}
+                  autoFocus
+                />
+              </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="email">Email Address</InputLabel>
                 <Input
@@ -71,6 +82,16 @@ export class Login extends React.Component {
                   onChange={this.handleChange}
                 />
               </FormControl>
+              <FormControl margin="normal" required fullWidth>
+                <InputLabel htmlFor="password">Confirmar Password</InputLabel>
+                <Input
+                  name="Confirmarpassword"
+                  type="password"
+                  id="onfirmarpassword"
+                  autoComplete="current-password"
+                  onChange={this.handleChange}
+                />
+              </FormControl>
               <Button
                 type="submit"
                 variant="outlined"
@@ -79,17 +100,6 @@ export class Login extends React.Component {
               >
                 Ingresar
               </Button>
-              
-              <Button
-                onClick= {this.handleRegister}
-                type="submit"
-                variant="outlined"
-                color="primary"
-                className="submit"
-              >
-                Registrarse 
-              </Button>
-              
             </form>
           </Paper>
         </main>
