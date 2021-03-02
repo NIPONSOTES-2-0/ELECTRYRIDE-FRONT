@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import ViewMap from './components/map/ViewMap';
+import {Login} from './components/login/Login';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 it('renders without crashing', () => {
@@ -13,3 +14,8 @@ it('renders without crashing', () => {
 test('Should return map', () => {
     render(<ViewMap />)
   });
+test('Sould return view login', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Login/>, div);
+    ReactDOM.unmountComponentAtNode(div);
+});
