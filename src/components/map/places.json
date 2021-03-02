@@ -1,0 +1,31 @@
+{
+    "venues": [{
+            "description": "Centro comercial Santa fe",
+            "name": "C.C Santa Fe",
+            "latitude": 4.752188061011153,
+            "longitude": -74.04425755035315,
+            "bikes_aviables": 0
+        },
+        {
+            "description": "Portal Norte Transmilenio",
+            "name": "Portal Norte",
+            "latitude": 4.750403815385941,
+            "longitude": -74.0597338724973,
+            "bikes_aviables": 10
+        },
+        {
+            "description": "Centro Comerial Arizona",
+            "name": "C.C Arizona",
+            "latitude": 4.755030747854433,
+            "longitude": -74.04616933142172,
+            "bikes_aviables": 5
+        },
+        {
+            "description": "Universidad de San Buenaventura",
+            "name": "Universidad SB",
+            "latitude": 4.751794922530678,
+            "longitude": -74.03002540327518,
+            "bikes_aviables": 13
+        }
+    ]
+}
