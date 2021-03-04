@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import FormularioAyuda from "./components/ayuda/FormularioAyuda";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
@@ -27,7 +28,7 @@ class App extends Component {
               <h1>Escoge tu metodo de pago</h1>
             </Route>
             <Route exact path="/ayuda">
-              <h1>Contacta con nosotros</h1>
+              <h1> <FormularioAyuda/> </h1>
             </Route>
           </Switch>
           
