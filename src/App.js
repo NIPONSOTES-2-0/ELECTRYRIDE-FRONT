@@ -32,8 +32,7 @@ class App extends Component {
         <Router>          
         <Navbar />
           <Switch>
-            <Route exact path="/" component={LoginView}>
-            </Route>
+            <Route exact path="/" component={LoginView} />            
             <Route path="/perfil" component={UserProfileView} />
             <Route path="/register" component={RegisterView} />
             <Route exact path="/map">
@@ -46,10 +45,9 @@ class App extends Component {
               <AddCreditCard />
             </Route>
             <Route exact path="/ayuda">
-              <h1> <FormularioAyuda/> </h1>
-            </Route>
-          </Switch>
-          
+              <FormularioAyuda/>
+            </Route>            
+          </Switch>          
         </Router>
       </div>
     );
