@@ -62,7 +62,7 @@ export class Register extends React.Component {
     let header = {
       headers: {
           'Content-Type': 'application/json',
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "http://localhost:8080",
       }
     };
     axios.post(URL+'register',usuario, header).then(res => res.data).catch((err) => {
