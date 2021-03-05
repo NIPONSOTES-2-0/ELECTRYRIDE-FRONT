@@ -10,6 +10,7 @@
         "@testing-library/user-event": "^12.8.0",
         "axios": "^0.21.1",
         "bootstrap": "^4.6.0",
+        "deep-iterator": "^1.1.0",
         "mapbox-gl": "^0.38.0",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
