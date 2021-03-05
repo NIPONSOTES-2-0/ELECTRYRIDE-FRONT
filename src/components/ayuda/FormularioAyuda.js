@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import axios from 'axios';
+import "./styles/FormularioAyuda.css";
 class FormularioAyuda extends Component{
     constructor(props){
         super(props);
@@ -7,11 +8,35 @@ class FormularioAyuda extends Component{
 
     }
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log("Datos obtenidos!!")
+        console.log("email:",e.target[0].value);
+        console.log("nombre:",e.target[1].value);
+        console.log("info:",e.target[2].value);
+        var email = e.target[0].value;
+        var nombre = e.target[1].value
+        var info = e.target[2].value;
+        const datos = {
+            email: email,
+            nombre: nombre,
+            info: info
+        }
+
+        /*axios({
+            method: 'post',
+            url: '',
+            data:{
+                datos
+            }
+        });*/
+    }
+
     render(){
-        return(<div>
+        return(<div className="fondo">
                     <h1> Formulario de ayuda </h1>
                     <div className="card card-body">
-                        <form onSubmit={this.props.onSubmit}>
+                        <form className="formulario-ayuda" conSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <input
                                 type="email"
@@ -29,7 +54,14 @@ class FormularioAyuda extends Component{
                                 className="form-control"
                             />
                             </div>{""}
-                            <br/>
+                            <div className="form-group">
+                                <select className="custom-select">
+                                <option value="default">Selecciona el tipo de ayuda</option>
+                                <option value="queja">Queja</option>
+                                <option value="pregunta">Pregunta</option>
+                                <option value="opinion">Opinion</option>
+                                </select>
+                            </div>{""}
                             <div className="form-group">
                                 <textarea
                                 type="text"
@@ -40,7 +72,7 @@ class FormularioAyuda extends Component{
                                 className="form-control"
                             />
                             </div>{""}
-                            <button className="btn btn-success btn-block">Enviar</button>
+                            <button type="button" className="btn btn-primary">Enviar</button>
                         </form>{""}
                     </div>
                 </div>
