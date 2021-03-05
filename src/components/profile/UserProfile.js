@@ -1,50 +1,60 @@
-import React from 'react';
-//import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import Loading from "../loading/Loading";
+import axios from "axios";
 
-class UserProfile extends React.Component {
+const UserProfile = () => {
+  const [users, setUsers] = useState(null);
+  const [loading, setLoading] = useState(false);
+  //const [error, setError] = useState(null);
 
+  useEffect(() => {
+    setLoading(true);
+    const URL = "http://localhost:8080/api/usuarios/";
+    let header = {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:8080",
+        },
+      };
+    axios
+      .get(URL + "users", header)
+      .then((response) => {
+        var res = response.data;                
+        var usuarios = Object.keys(res).map((key, index) => res[key]);
+        console.log("usuarios de bd: ",usuarios);                        
+        setLoading(false);
+        setUsers(usuarios);        
+        
+      })
+      .catch((error) => {
+        console.log("Error with axios & bd: ",error);
+        setLoading(true);
+        //setError(error);
+      });
+  }, []);
 
-    constructor(props){
-        super(props);
-        this.state = {
-            datos: []
-        };
-    }
-    
-
-    async componentDidMount(){
-        const response = await fetch('http://localhost:8080/');        
-        const data = await response.json();
-        console.log("Data: ",data);
-        var arr = [];
-        Object.keys(data).forEach(function(key) {
-        arr.push(data[key]);
-        });
-        console.log("array: ", arr);
-        this.setState({
-            datos: arr
-        });
-        return arr;
-    }
-
-
-
-    render(){
-        //const datos = this.getDataFromSpring();        
-        console.log("datooos: ",this.state.datos);
-        const usuarios = this.state.datos === [] ?  null : this.state.datos;
-        return(                 
-            <div>
-                <h2>Los usuarios registrados actualmente son: </h2>
-                {usuarios!== null? usuarios.map((usuario, index) => {
-                    return <h3>Usuario: {usuario}</h3>
-                }): ''}
-                <h1>Bienvenido a el perfil</h1>
-            </div>
-        );
-    }
-    
-
+  return (
+    <div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div>
+          <h1>Bienvenido a el perfil</h1>
+          <h2>Los usuarios registrados actualmente son: </h2>
+          {users !== null
+            ? users.map((usuario, index) => {
+                return (<div>
+                    <h3>Usuario</h3>
+                    <h4>{usuario.name}</h4>
+                    <h4>{usuario.lastname}</h4>
+                    <h5>{usuario.email}</h5>
+                    </div>);
+              })
+            : ""}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default UserProfile;
