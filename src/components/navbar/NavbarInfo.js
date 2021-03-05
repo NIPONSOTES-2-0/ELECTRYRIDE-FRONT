@@ -40,5 +40,11 @@ export const navbarInfo = [
         path: '/ayuda',
         icon: <IoIcons.IoMdHelpCircle />,
         cName: 'nav-text'
+    },
+    {
+        title: 'Facebook',
+        path: '/facebook',
+        icon: <IoIcons.IoMdHelpCircle />,
+        cName: 'nav-text'
     }
 ]

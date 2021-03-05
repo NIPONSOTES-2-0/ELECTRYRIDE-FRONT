@@ -46,7 +46,13 @@ class App extends Component {
               <AddCreditCard />
             </Route>
             <Route exact path="/ayuda">
-              <h1> <FormularioAyuda/> </h1>
+              <FormularioAyuda/>
+            </Route>
+            <Route exact path="/FACEBOOK">
+              <div>
+                <h1>Hola, estas en facebook</h1>                            
+              </div>
+              
             </Route>
           </Switch>
           
