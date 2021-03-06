@@ -17,22 +17,15 @@ const UserContextProvider = (props) => {
   };
 
   const deleteUser = (id) => {
-    userService
-      .delete(id)
-      .then(() => setUsers(users.filter((p) => p._id !== id)));
+    userService.delete(id).then(() => setUsers(users.filter((p) => p._id !== id)));
   };
 
-  const findUser = (id) => {
-    const user = users.find((p) => p._id === id);
-    console.log("user finded: ",user);
-  };
+  const findUser = (id) => (
+    users.find((p) => p._id === id)
+  );
 
   const updateUser = (user) => {
-    userService
-      .update(user)
-      .then((data) =>
-        setUsers(users.map((p) => (p._id === user._id ? data : user)))
-      );
+    userService.update(user).then((data) =>setUsers(users.map((p) => (p._id === user._id ? data : user))));
   };
 
   return (
