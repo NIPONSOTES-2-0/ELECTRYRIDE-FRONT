@@ -62,15 +62,9 @@ export const Register = () => {
       email: email,
       password: password,
     };
-
-    let header = {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:8080",
-      },
-    };
+    
     axios
-      .post(URL + "register", usuario, header)
+      .post(URL + "register", usuario)
       .then((res) => res.data)
       .catch((err) => {
         console.log("Error on axios: ", err);
@@ -88,7 +82,7 @@ export const Register = () => {
             <AccountCircleIcon />
           </Avatar>
           <Typography variant="h2">Update</Typography>
-          <form className="form" onSubmit={handleSubmit}>
+          <form className="form" onSubmit={handleSubmit} > 
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="name">Nombre</InputLabel>
               <Input
