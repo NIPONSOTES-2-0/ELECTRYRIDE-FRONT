@@ -6,7 +6,7 @@ const UserProfile = () => {
   const [usuarios, setUsuarios] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const {
+  let {
     users
   } = useContext(UserContext);
   

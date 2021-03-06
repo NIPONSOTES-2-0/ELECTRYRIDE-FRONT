@@ -24,7 +24,7 @@ class App extends Component {
     });
   };
   render() {
-    const UserProfileView = () => <UserProfile />;
+    //const UserProfileView = () => <UserProfile />;
     const LoginView = () => <Login />;
     const RegisterView = () => <Register />;
     return (
