@@ -10,7 +10,7 @@ const UserContextProvider = (props) => {
   
   useEffect(() => {
     userService.findAll().then((data) => setUsers(data));                
-  }, []);
+  });
 
   const registerUser = (user) => {
     userService.register(user).then((data) => setUsers([...users, data]));

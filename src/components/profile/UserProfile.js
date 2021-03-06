@@ -15,7 +15,7 @@ const UserProfile = () => {
     setLoading(true);        
     usuarios !== null ? setLoading(false): setLoading(true);    
     setUsuarios(users);
-  }, [users]);
+  }, [users, usuarios]); 
 
   return (
     <div>
