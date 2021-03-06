@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from "react";
 import CustomMarker from "./CustomMarker";
 import axios from 'axios';
-import Loading from '../loading/Loading';
+//import Loading from '../loading/Loading';
 
 const CustomMarkers = ({ places, openPopup }) => {
 
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
   const [parkings, setParkings] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
+    //setLoading(true);
     const URL = "http://localhost:8080/api/bikes/";
     let header = {
         headers: {
@@ -27,13 +27,13 @@ const CustomMarkers = ({ places, openPopup }) => {
         console.log("RESPONSE.DATA: ",res);
         var usuarios = Object.keys(res).map((key, index) => res[key]);
         console.log("usuarios de bd: ",usuarios);                        
-        setLoading(false);
+        //setLoading(false);
         setParkings(usuarios);        
 
       })
       .catch((error) => {
         console.log("Error with axios & bd: ",error);
-        setLoading(true);
+        //setLoading(true);
         //setError(error);
       });
   }, []);

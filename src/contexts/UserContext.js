@@ -24,6 +24,7 @@ const UserContextProvider = (props) => {
 
   const findUser = (id) => {
     const user = users.find((p) => p._id === id);
+    console.log("user finded: ",user);
   };
 
   const updateUser = (user) => {

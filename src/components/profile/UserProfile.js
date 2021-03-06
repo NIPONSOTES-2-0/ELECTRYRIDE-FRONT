@@ -12,9 +12,9 @@ const UserProfile = () => {
   
 
   useEffect(() => {
-    setLoading(true);    
-    setUsuarios(users);
+    setLoading(true);        
     usuarios !== null ? setLoading(false): setLoading(true);    
+    setUsuarios(users);
   }, [users]);
 
   return (
