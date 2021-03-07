@@ -21,7 +21,7 @@ const ParkingContextProvider = (props) => {
   };
 
   const findParking = (id) => {    
-    const parkingFounded = parkings.find((p) => p.id === id)    
+    return parkings.find((p) => p.id === id);
   };
 
   const updateParking = (id) => {    
