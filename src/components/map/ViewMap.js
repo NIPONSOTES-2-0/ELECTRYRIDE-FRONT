@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import ReactMapGL from "react-map-gl";
 import Geocoder from "react-mapbox-gl-geocoder";
 import { Container, Col, Row, Button } from "reactstrap";
-import 'mapbox-gl/dist/mapbox-gl.css';
+import "mapbox-gl/dist/mapbox-gl.css";
 //import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
-
 
 import { Marker } from "react-map-gl";
 import "./styles/Marker.css";
 import Markers from "./Markers";
-import venues from "./places.json";
 
 
 const mapStyle = {
@@ -32,17 +30,21 @@ class MapView extends Component {
       viewport: {
         latitude: 4.7653385,
         longitude: -74.0507561,
-        zoom: 15,
+        zoom: 13,
       },
       tempMarker: null,
       markers: [],
       selectedIndex: null,
-      activePopup: null
+      activePopup: null,
     };
   }
-  
-  openPopup = (popup) => {        
+
+  openPopup = (popup) => {
     this.setState({ activePopup: popup });
+  };
+
+  closePopup = () => {
+    this.setState({ activePopup: null });
   };
 
   onSelected = (viewport, item) => {
@@ -56,9 +58,8 @@ class MapView extends Component {
     });
   };
 
-
   render() {
-    const view = this.state.viewport;    
+    const view = this.state.viewport;
     return (
       <Container fluid={true}>
         <Row>
@@ -66,8 +67,8 @@ class MapView extends Component {
             <h2>Mapa</h2>
           </Col>
         </Row>
-        <Row className="py-4">
-          <Col xs={2}>
+        <Row className="py-4 ">
+          <div xs={2} className="card-body" style={{alignItems: 'center'}}>
             <Geocoder
               mapboxApiAccessToken={mapboxApiKey}
               onSelected={this.onSelected}
@@ -76,12 +77,9 @@ class MapView extends Component {
               value=""
               queryParams={params}
             />
-          </Col>
-          <Col>
-            <Button color="primary">
-              Add
-            </Button>
-          </Col>
+            <Button color="primary">Add</Button>
+          </div>
+          
         </Row>
         <Row>
           <Col>
@@ -101,9 +99,9 @@ class MapView extends Component {
                     <span></span>
                   </div>
                 </Marker>
-              )}              
-              <Markers places={venues.venues} openPopup={this.openPopup}/>
-             {this.state.activePopup !== null && (this.state.activePopup)}
+              )}
+              <Markers closePopup={this.closePopup} openPopup={this.openPopup} />
+              {this.state.activePopup !== null && this.state.activePopup}
             </ReactMapGL>
           </Col>
         </Row>

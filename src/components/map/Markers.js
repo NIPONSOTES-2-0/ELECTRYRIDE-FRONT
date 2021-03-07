@@ -1,38 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import CustomMarker from "./CustomMarker";
-import axios from "axios";
-//import Loading from '../loading/Loading';
+import Loading from '../loading/Loading';
+import { ParkingContext } from "../../contexts/ParkingContext";
 
-const CustomMarkers = ({ places, openPopup }) => {
-  //const [loading, setLoading] = useState(false);
-  const [parkings, setParkings] = useState([]);
+const CustomMarkers = ({ closePopup, openPopup }) => {
+  const [loading, setLoading] = useState(false);
+  const [parqueaderos, setParqueaderos] = useState([]);
+
+  let {
+    parkings,
+    findParking,
+    updateParking
+  } = useContext(ParkingContext);
+  
 
   useEffect(() => {
-    //setLoading(true);
-    const URL = "http://localhost:8080/api/bikes/";
-    let header = {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:8080",
-      },
-    };
+    setLoading(true);        
+    parqueaderos !== null ? setLoading(false): setLoading(true);    
+    setParqueaderos(parkings);
+    //console.log("Parqueaderos: ",parqueaderos);
+  }, [parkings, parqueaderos]); 
+  
+  const rentBike = (id) => {
+    console.log("Entrando en useBike: ",id);
+    findParking(id);
+    updateParking(id);
+  }
 
-    axios.get(URL + "parkings", header).then((response) => {        
-        var usuarios = Object.keys(response.data).map((key, index) => response.data[key]);setParkings(usuarios);}).catch((error) => console.log("Error with axios & bd: ", error));
-  }, []);
-
-  const markers = parkings.map((marker, index) => {
+  const markers = parqueaderos.map((marker, index) => {
     return (
-      <CustomMarker
+       <>
+      {loading ? (<Loading />) :
+       <CustomMarker
         key={`marker-${index}`}
         index={index}
         marker={marker}
         openPopup={openPopup}
-      />
+        closePopup={closePopup}
+        rentBike={rentBike}
+      />}
+      </>
     );
   });
 
-  return <>{parkings !== [] ? markers : ""}</>;
+  return <>{parqueaderos !== [] ? markers : ""}</>;
 };
 
 export default CustomMarkers;

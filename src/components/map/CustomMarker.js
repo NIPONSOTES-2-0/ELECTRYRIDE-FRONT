@@ -3,7 +3,7 @@ import { Marker } from "react-map-gl";
 import "./styles/Marker.css";
 import CustomPopup from "./CustomPopup";
 
-const CustomMarker = ({ index, marker, openPopup }) => {
+const CustomMarker = ({ index, marker, openPopup, closePopup, rentBike }) => {
   return (
     <Marker longitude={marker.longitude} latitude={marker.latitude}>
       <div
@@ -12,13 +12,15 @@ const CustomMarker = ({ index, marker, openPopup }) => {
           openPopup(
             <CustomPopup
               index={index}
-              marker={marker}              
+              marker={marker}
+              closePopup={closePopup}
+              rentBike={rentBike}
             />
           )
         }
       >
         <span>
-          <b>{index + 1}</b>
+          <b>{marker.bikes_aviables}</b>
         </span>
       </div>
     </Marker>
