@@ -9,6 +9,7 @@ import AddCreditCard from "./components/pagos/AddCreditCard";
 import { Login } from "./components/login/Login";
 import { Register } from "./components/login/Register";
 import UserContextProvider from "./contexts/UserContext";
+import ParkingContextProvider from "./contexts/ParkingContext";
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +41,9 @@ class App extends Component {
             </Route>
             <Route path="/register" component={RegisterView} />
             <Route exact path="/map">
-              <MapView />
+              <ParkingContextProvider>
+                <MapView />
+              </ParkingContextProvider>
             </Route>
             <Route exact path="/viaje">
               <h1>Inicia tu viaje</h1>
