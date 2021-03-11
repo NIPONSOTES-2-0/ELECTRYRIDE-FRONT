@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import FormularioAyuda from "./components/ayuda/FormularioAyuda";
+import { FormularioAyuda }  from "./components/ayuda/FormularioAyuda";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
