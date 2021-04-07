@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export class ParkingService {
-  baseURL = "http://localhost:8080";
-  urlEXT = "/api/bikes/";
+  baseURL = "https://electryride-back.herokuapp.com";
+  urlEXT = "/bikes/";
 
   header = {
     headers: {
