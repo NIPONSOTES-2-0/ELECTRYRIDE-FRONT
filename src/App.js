@@ -7,26 +7,13 @@ import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
 import MapView from "./components/map/ViewMap";
 import AddCreditCard from "./components/pagos/AddCreditCard";
-import { Login } from "./components/login/Login";
-import { Register } from "./components/login/Register";
+import  Login  from "./components/login/Login";
+import  Register  from "./components/login/Register";
 import UserContextProvider from "./contexts/UserContext";
 import ParkingContextProvider from "./contexts/ParkingContext";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-    };
-    this.handleIsLoggedIn = this.handleIsLoggedIn.bind(this);
-  }
-  handleIsLoggedIn = () => {
-    this.setState({
-      isLoggedIn: true,
-    });
-  };
   render() {
-    //const UserProfileView = () => <UserProfile />;
     const LoginView = () => <Login />;
     const RegisterView = () => <Register />;
     return (

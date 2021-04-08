@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export class UserService {
-  baseURL = "http://localhost:8080";
-  urlEXT = "/api/usuarios/";
+  baseURL = "https://electryride-back.herokuapp.com";
+  urlEXT = "/users/";
 
   header = {
     headers: {
