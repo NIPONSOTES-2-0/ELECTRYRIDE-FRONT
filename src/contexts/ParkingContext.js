@@ -10,7 +10,7 @@ const ParkingContextProvider = (props) => {
   
   useEffect(() => {
     parkingService.findAll().then((data) => setParkings(data));
-  }, [parkingService]);
+  });
   
 
   const registerParking = (parking) => {
