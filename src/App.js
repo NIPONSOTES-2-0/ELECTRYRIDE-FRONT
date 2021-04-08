@@ -45,6 +45,7 @@ class App extends Component {
             </Route>
             <Route exact path="/reporte">
               <FormularioReporte />
+            </Route>
             <Route exact path="/apoyo">
               <FormularioApoyo />
             </Route>
