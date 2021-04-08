@@ -35,25 +35,10 @@ test("Should return map", () => {
   render(<ViewMap />);
 });
 
-test("Should render profile", () => {
-  render(
-    <UserContextProvider>
-      <UserProfile />
-    </UserContextProvider>
-  );
-});
-
-test("Should render userContext", () => {
-  render(<UserContextProvider />);
-});
 
 test("Should render userService", () => {
   const service = new UserService();
   render(<service />);
-});
-
-test("Should render registerView", () => {
-  render(<Register />);
 });
 
 
@@ -61,38 +46,3 @@ test("Should Search A Place", () => {
   render(<ViewMap />);  
 });
 
-test("Sould return view login", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Login />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-test("Should render CreditCardForm", () => {
-  const state = {
-    form: {
-      name: "",
-      cardNumber: "",
-      cvc: "",
-      date: "",
-    },
-    error: null,
-    loading: false,
-  };
-  const div = document.createElement("div");
-  ReactDOM.render(<CreditCardForm form={state.form} />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-test("Should render AddCreditCard", () => {
-  const div = document.createElement("div");
-  <Router>
-    <Switch>
-      <Route path="/perfil" />
-      <Route>
-        <AddCreditCard />
-        {ReactDOM.render(<AddCreditCard />, div)}
-      </Route>
-    </Switch>
-  </Router>;
-  ReactDOM.unmountComponentAtNode(div);
-});
