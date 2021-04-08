@@ -3,6 +3,23 @@
     height: 0;
 }
 
+.mapboxgl-marker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background: blue;
+    border: solid 2px;
+    border-radius: 0 70% 70%;
+    box-shadow: 0 0 2px #000;
+    cursor: pointer;
+    transform-origin: 0 0;
+    transform: rotateZ(-135deg);
+}
+
 .marker span {
     display: flex;
     justify-content: center;
@@ -21,9 +38,20 @@
 }
 
 .marker b {
-    transform: rotateZ(135deg)
+    transform: rotateZ(90deg)
 }
 
 .temporary-marker span {
     background: blue;
+}
+
+.mark-title {
+    color: black;
+    font: bold;
+    font-size: 1.5em;
+}
+
+.mark-text {
+    color: red;
+    font-size: 1.2em;
 }

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect} from "react";
 import { ParkingService } from "../services/ParkingService";
 
 export const ParkingContext = createContext();
@@ -10,7 +10,8 @@ const ParkingContextProvider = (props) => {
   
   useEffect(() => {
     parkingService.findAll().then((data) => setParkings(data));
-  });
+  }, [parkingService]);
+  
 
   const registerParking = (parking) => {
     parkingService.register(parking).then((data) => setParkings([...parkings, data]));
