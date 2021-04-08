@@ -8,7 +8,6 @@ import MapView from "./components/map/ViewMap";
 import AddCreditCard from "./components/pagos/AddCreditCard";
 import  Login  from "./components/login/Login";
 import  Register  from "./components/login/Register";
-import { Profile } from "./components/profile/Profile";
 import UserContextProvider from "./contexts/UserContext";
 import ParkingContextProvider from "./contexts/ParkingContext";
 
@@ -17,17 +16,14 @@ class App extends Component {
     super(props);
   }
   render() {
-    //const UserProfileView = () => <UserProfile />;
     const LoginView = () => <Login />;
     const RegisterView = () => <Register />;
-    const ProfileView = () => <Profile />;
     return (
       <div className="App">
         <Router>
           <Navbar />
           <Switch>
             <Route exact path="/" component={LoginView} />
-            <Route exact path="/profile" component={ProfileView} />
             <Route path="/perfil">
               <UserContextProvider>
                 <UserProfile />

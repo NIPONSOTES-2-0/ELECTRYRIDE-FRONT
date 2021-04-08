@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -57,32 +57,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Register() {
   const classes = useStyles();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();    
+  const handleSubmit = (e) => {e.preventDefault();    
     axios.post("https://electryride-back.herokuapp.com/users/register",{
-      name: e.target.name.value,
-      lastname: e.target.lastname.value,
-      email: e.target.email.value,
-      password: e.target.password.value
-    })
-      .then(function(response){
-        // redireccionar
-        Swal.fire(
-          'Bienvenido ',
-          'Se ha registrado correctamente! ',
-          'success'
-        )  
-        document.location.href = "/map";
-      })
-      .catch((err) => {
-        Swal.fire(
-          'Error ',
-          'Datos incorrectos ',
-          'error'
-        )
-        console.log("Error on axios: ", err);
-      });
+      name: e.target.name.value,lastname: e.target.lastname.value,email: e.target.email.value,password: e.target.password.value})
+      .then(function(response){Swal.fire('Bienvenido ','Se ha registrado correctamente! ','success')  
+        document.location.href = "/map";})
+      .catch((err) => {Swal.fire('Error ','Datos incorrectos ','error')});
   };
 
   return (

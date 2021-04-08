@@ -9,7 +9,8 @@ test("Should render registerView", () => {
   render(<Register />);
 });
 
-/*test('check if login button is not disabled', () => {
+/*
+test('check if login button is not disabled', () => {
   let loginButton = wrapper.find('#login-button');
   wrapper.find('input[name="workplace"]').simulate('change', { target: { name:'workplace', value: 'test' } });
   wrapper.find('input[name="password"]').simulate('change', { target: { name:'password', value: 'test' } });

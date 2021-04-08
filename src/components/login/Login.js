@@ -2,7 +2,6 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -60,36 +59,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Login (){
   const classes = useStyles();
-  const handleSubmit = (e) => {
-    e.preventDefault();     
-    console.log("entra");
-    axios.post('https://electryride-back.herokuapp.com/users/login', {
-      email: e.target.email.value,
-      password: e.target.password.value
-    })
-      .then(function (response) {
-        Swal.fire(
-          'Bienvenido ',
-          'Sera redireccionado al dashboard de ',
-          'success'
-        )
-        // guardar token e username logueado en localestorage
-        localStorage.setItem('token', JSON.stringify(response.data.accessToken));
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        localStorage.setItem('mailLogged', JSON.stringify(response.data.user.email));
-        localStorage.setItem('nameLogged', JSON.stringify(response.data.user.name));
-        localStorage.setItem('lastnameLogged', JSON.stringify(response.data.user.lastname));
-        console.log(response.data);
-        // redireccionar
+  const handleSubmit = (e) => {e.preventDefault();     
+    axios.post('https://electryride-back.herokuapp.com/users/login', {email: e.target.email.value, password: e.target.password.value})
+      .then(function (response) {Swal.fire('Bienvenido ','Sera redireccionado al dashboard de ','success')
+        localStorage.setItem('token', JSON.stringify(response.data.accessToken));localStorage.setItem('user', JSON.stringify(response.data.user));localStorage.setItem('mailLogged', JSON.stringify(response.data.user.email));localStorage.setItem('nameLogged', JSON.stringify(response.data.user.name));localStorage.setItem('lastnameLogged', JSON.stringify(response.data.user.lastname));
         document.location.href = "/map";
-      }).catch(function (error) {
-        console.log(error);
-        Swal.fire(
-          'Campos Erroneos',
-          'Verifique los campos',
-          'error'
-        )
-      });
+      }).catch(function (error) {Swal.fire('Campos Erroneos','Verifique los campos','error')});
   };
   return (
     <Grid container component="main" className={classes.root}>
