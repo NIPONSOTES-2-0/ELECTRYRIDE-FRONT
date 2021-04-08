@@ -12,9 +12,6 @@ import UserContextProvider from "./contexts/UserContext";
 import ParkingContextProvider from "./contexts/ParkingContext";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const LoginView = () => <Login />;
     const RegisterView = () => <Register />;
