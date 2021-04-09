@@ -1,11 +1,13 @@
 import axios from "axios";
 
 export class ParkingService {
-  baseURL = "https://electryride-back.herokuapp.com";
-  urlEXT = "/bikes/";
+  baseURL = "http://localhost:8080";
+  //baseURL = "https://electryride-back.herokuapp.com";
+  urlEXT = "/api/bikes/";
 
   header = {
     headers: {
+      "Authorization": 'Bearer ' + localStorage.getItem('token'),
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": this.baseURL,
     },

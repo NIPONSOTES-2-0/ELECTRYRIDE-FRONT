@@ -6,7 +6,7 @@ import { FormularioApoyo }  from "./components/apoyo/FormularioApoyo";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
-import MapView from "./components/map/ViewMap";
+import ViewMapHook from "./components/map/ViewMapHook";
 import AddCreditCard from "./components/pagos/AddCreditCard";
 import  Login  from "./components/login/Login";
 import  Register  from "./components/login/Register";
@@ -31,7 +31,7 @@ class App extends Component {
             <Route path="/register" component={RegisterView} />
             <Route exact path="/map">
               <ParkingContextProvider>
-                <MapView />
+                <ViewMapHook />
               </ParkingContextProvider>
             </Route>
             <Route exact path="/viaje">
@@ -45,6 +45,7 @@ class App extends Component {
             </Route>
             <Route exact path="/reporte">
               <FormularioReporte />
+            </Route>
             <Route exact path="/apoyo">
               <FormularioApoyo />
             </Route>
