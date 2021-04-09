@@ -30,8 +30,7 @@ const CustomModal = ({ price, showModal, toggleModal, error }) => {
           <Button color="danger" onClick={toggleModal}>
             Volver
           </Button>
-          {error?'': <Button color="success">Iniciar viaje</Button>}
-          
+          {error?'': <Button color="success">Iniciar viaje</Button>}          
         </Row>
       </ModalFooter>
     </Modal>

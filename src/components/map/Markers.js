@@ -31,7 +31,7 @@ const CustomMarkers = ({ mapView }) => {
     if (marker.bikes_aviables > 0) rentBike(marker.id);
   };
 
-  parqueaderos.map((marker, index) => {
+  parqueaderos.forEach((marker, index) => {
     console.log("MARKER IN MARKERS: ", marker);
     const mrk = new mapboxgl.Marker()
       .setLngLat([marker.longitude, marker.latitude])
