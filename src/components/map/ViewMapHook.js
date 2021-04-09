@@ -26,7 +26,7 @@ const MapView = (props) => {
     zoom: 13,
   });
   const [tempMarker, setTempMarker] = useState(null);
-  const [markers, setMarkers] = useState([]);  
+  const [markers, setMarkers] = useState([]);    
   const [activePop, setActivePop] = useState(null);
   const [travel, setTravel] = useState({ duration: 0, distance: 0 });
   const [directions, setDirections] = useState(null);
@@ -39,7 +39,7 @@ const MapView = (props) => {
   var mapWrapper;
 
   useEffect(() => {    
-    console.log("TOKEN: ",localStorage.getItem('token'));
+    console.log("TOKEN: ",localStorage.getItem('token'));    
     mapboxgl.accessToken = mapboxApiKey;
     const map = new mapboxgl.Map({
       container: mapWrapper,
@@ -91,7 +91,7 @@ const MapView = (props) => {
 
   return (
     <Container fluid={true}>
-      {updateRouting()} {console.log("RENDER MAPA")}
+      {updateRouting()} {console.log("RENDER MAPA")}{ console.log("markers: ",markers)}
       <Row>
         <Col>
           <h2>Mapa</h2>
