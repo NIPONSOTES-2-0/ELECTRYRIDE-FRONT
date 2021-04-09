@@ -12,7 +12,8 @@ const CustomMarkers = ({ mapView }) => {
   const [loading, setLoading] = useState(false);
   const [parqueaderos, setParqueaderos] = useState([]);
 
-  let { parkings, findParking, updateParking } = useContext(ParkingContext);
+  //let { parkings, findParking, updateParking } = useContext(ParkingContext);
+  let parkings = []; const findParking = () => {console.log("ok")}; const updateParking=()=>{console.log("ok2")};
 
   useEffect(() => {
     setLoading(true);

@@ -12,8 +12,11 @@ test("should render customPopup", () => {
   render(<CustomPoupup />);
 });
 
+
 /*
 test("should render customMarker", () => {
-  render(<CustomMarker />);
+    //({ index, marker, openPopup, closePopup, rentBike }
+    const marker = {longitude:11.21, latitude:22.1};
+    //render(<CustomMarker index={1} marker={marker}/>);
 });
 */
