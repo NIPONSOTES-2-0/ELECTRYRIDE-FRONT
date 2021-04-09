@@ -8,12 +8,13 @@ import { ParkingContext } from "../../contexts/ParkingContext";
   de un prestamo de ciclas pero no en la vista, alguien mas trabajele ya me sabe a caca el mapa.
 */
 const CustomMarkers = ({ mapView }) => {
-  console.log("CUANTAS VECES ENTRA EN CUSTOM MARKERS");
+  //console.log("CUANTAS VECES ENTRA EN CUSTOM MARKERS: ",ParkingContext);
+  //let xa= useContext([]);console.log("xa: ",xa);
   const [loading, setLoading] = useState(false);
   const [parqueaderos, setParqueaderos] = useState([]);
 
-  //let { parkings, findParking, updateParking } = useContext(ParkingContext);
-  let parkings = []; const findParking = () => {console.log("ok")}; const updateParking=()=>{console.log("ok2")};
+  let { parkings, findParking, updateParking } = useContext(ParkingContext);
+  //let parkings = []; const findParking = () => {console.log("ok")}; const updateParking=()=>{console.log("ok2")};
 
   useEffect(() => {
     setLoading(true);
