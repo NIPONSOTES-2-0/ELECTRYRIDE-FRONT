@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { FormularioApoyo }  from "./components/apoyo/FormularioApoyo";
 import { FormularioReporte } from "./components/reporte/FormularioReporte"
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
@@ -38,6 +39,8 @@ class App extends Component {
             <Route exact path="/pagos">
               <AddCreditCard />
             </Route>
+            <Route exact path="/apoyo">
+              <FormularioApoyo />
             <Route exact path="/reporte">
               <FormularioReporte />
             </Route>
