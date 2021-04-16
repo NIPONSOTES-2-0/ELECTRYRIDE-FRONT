@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { FormularioReporte } from "./components/reporte/FormularioReporte"
 import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
 import ViewMapHook from "./components/map/ViewMapHook";
@@ -37,7 +38,9 @@ class App extends Component {
             <Route exact path="/pagos">
               <AddCreditCard />
             </Route>
-            
+            <Route exact path="/reporte">
+              <FormularioReporte />
+            </Route>
           </Switch>
         </Router>
       </div>
