@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
+
+import { FormularioAyuda } from "./components/ayuda/FormularioAyuda";
+import { FormularioReporte } from "./components/reporte/FormularioReporte";
+import { FormularioApoyo } from "./components/apoyo/FormularioApoyo";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { FormularioApoyo }  from "./components/apoyo/FormularioApoyo";
 import { FormularioReporte } from "./components/reporte/FormularioReporte"
@@ -7,10 +12,12 @@ import UserProfile from "./components/profile/UserProfile";
 import Navbar from "./components/navbar/Navbar";
 import ViewMapHook from "./components/map/ViewMapHook";
 import AddCreditCard from "./components/pagos/AddCreditCard";
-import  Login  from "./components/login/Login";
-import  Register  from "./components/login/Register";
+import Login from "./components/login/Login";
+import Register from "./components/login/Register";
+import WizardExample from "./components/travel/WizardCustom";
 import UserContextProvider from "./contexts/UserContext";
 import ParkingContextProvider from "./contexts/ParkingContext";
+import BikeContextProvider from "./contexts/BikeContext";
 
 class App extends Component {
   render() {
@@ -34,7 +41,7 @@ class App extends Component {
               </ParkingContextProvider>
             </Route>
             <Route exact path="/viaje">
-              <h1>Inicia tu viaje</h1>
+              <WizardExample />
             </Route>
             <Route exact path="/pagos">
               <AddCreditCard />
