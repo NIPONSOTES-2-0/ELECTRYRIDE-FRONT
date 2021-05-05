@@ -9,12 +9,11 @@ import { ParkingContext } from "../../contexts/ParkingContext";
 */
 const CustomMarkers = ({ mapView }) => {
   //console.log("CUANTAS VECES ENTRA EN CUSTOM MARKERS: ",ParkingContext);
-  //let xa= useContext([]);console.log("xa: ",xa);
+  
   const [loading, setLoading] = useState(false);
   const [parqueaderos, setParqueaderos] = useState([]);
 
-  let { parkings, findParking, updateParking } = useContext(ParkingContext);
-  //let parkings = []; const findParking = () => {console.log("ok")}; const updateParking=()=>{console.log("ok2")};
+  let { parkings, findParking, updateParking } = useContext(ParkingContext);  
 
   useEffect(() => {
     setLoading(true);
@@ -33,8 +32,7 @@ const CustomMarkers = ({ mapView }) => {
     if (marker.bikes_aviables > 0) rentBike(marker.id);
   };
 
-  parqueaderos.forEach((marker, index) => {
-    console.log("MARKER IN MARKERS: ", marker);
+  parqueaderos.forEach((marker, index) => {    
     const mrk = new mapboxgl.Marker()
       .setLngLat([marker.longitude, marker.latitude])
       .addTo(mapView);

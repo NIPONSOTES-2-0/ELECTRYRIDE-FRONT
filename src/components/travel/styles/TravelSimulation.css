@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 95%;
+    left: 38%;
+}
+
+.overlay button {
+    font: 600 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #ff0101;
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#replay {
+    background-color: teal;
+}
+
+#report {
+    background-color: crimson;
+}
+
+.overlay button:hover {
+    background-color: #ff0101;
+}
